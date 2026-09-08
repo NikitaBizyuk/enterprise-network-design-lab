@@ -40,24 +40,42 @@ Designed and configured a multi-site enterprise network in Cisco Packet Tracer. 
 ## High Availability
 
 HSRP is configured between redundant multilayer switches to provide virtual default gateways and gateway redundancy for the departmental VLANs.
+![HSRP Verification](screenshots/hsrp-verification.png)
 
 ## Dynamic Routing
 
 OSPF Area 0 is used to dynamically exchange routing information between Layer 3 devices and provide connectivity between the headquarters and branch office.
 
-## Verification
+### OSPF Neighbor Adjacency
 
-The network was tested for:
+OSPF Area 0 dynamically exchanges routes between the headquarters and branch network. Neighbor adjacencies were verified in the FULL state.
 
-- Default gateway connectivity
-- Inter-VLAN connectivity
-- Inter-building connectivity
-- OSPF neighbor adjacency
-- HSRP operation and redundancy
-- 802.1Q trunk operation
+![OSPF Neighbors](screenshots/ospf-neighbors.png)
 
-## Project File
+### Routing Table Verification
 
-The complete Cisco Packet Tracer topology is available in:
+The routing tables were inspected to verify dynamically learned OSPF routes to remote networks.
+
+![Routing Table](screenshots/routing-table.png)
+
+## Testing & Verification
+
+### VLAN Configuration
+
+Departmental VLANs were created to segment HR, Sales, and Finance traffic into separate broadcast domains.
+
+![VLAN Configuration](screenshots/vlan-configuration.png)
+
+### 802.1Q Trunking
+
+Trunk links were configured between switches to transport multiple VLANs while restricting links to the required VLANs.
+
+![Trunk Verification](screenshots/trunk-verification.png)
+
+### Inter-Building Connectivity
+
+End-to-end ICMP testing verified connectivity between hosts located at the headquarters and branch office across the routed network.
+
+![Inter-Building Connectivity](screenshots/inter-building-ping.png)
 
 `Enterprise-Network-Design-Lab.pkt`
